@@ -1,0 +1,9 @@
+.otp{
+	-fx-border-radius: 20px;
+	-fx-backgound-radius: 20px;
+}
+
+.op:hover{
+	-fx-backgound-color: linear-gradient(to right, #04EBFC,#17D9FA, #26CDFA, #3ABBFA, #46B0FA, #49AFFC);
+	-fx-text-fill : #000;
+}

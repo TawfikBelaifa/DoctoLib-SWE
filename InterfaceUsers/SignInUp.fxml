@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="SystemApp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1614.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignInUpController">
+   <left>
+      <ScrollPane prefHeight="543.0" prefWidth="1139.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox prefHeight="1634.0" prefWidth="1124.0">
+               <children>
+                  <AnchorPane prefHeight="753.0" prefWidth="1124.0" style="-fx-background-color: linear-gradient(to right, #480ca8,#4cc9f0);">
+                     <children>
+                        <Text fill="WHITE" layoutX="109.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to DoctoLib">
+                           <font>
+                              <Font name="Century Gothic Bold" size="29.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="btnToMoveSignIn" blendMode="SRC_ATOP" contentDisplay="CENTER" layoutX="261.0" layoutY="356.0" mnemonicParsing="false" onAction="#ToMoveSignIn" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #fff; -fx-border-color: #fff; -fx-text-fill: #000;" styleClass="btnToMoveSignIn" text="Sign In">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button id="btnToMoveLogIn" fx:id="btnToMoveLogIn" blendMode="GREEN" cache="true" cacheHint="SCALE" contentDisplay="CENTER" graphicTextGap="8.0" layoutX="105.0" layoutY="356.0" mnemonicParsing="false" onAction="#ToMoveLogIn" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-text-fill: #fff;" text="Login" textAlignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Text fill="WHITE" layoutX="234.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OR" />
+                        <Text fill="WHITE" layoutX="1023.0" layoutY="715.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\@copyright 2023" wrappingWidth="83.66943359375">
+                           <font>
+                              <Font name="Cambria" size="11.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="47.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="639.66943359375">
+                           <font>
+                              <Font name="Century Gothic" size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="914.0" layoutY="694.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed By T.BELAIFA CEO of WSAI-E" wrappingWidth="191.66943359375">
+                           <font>
+                              <Font name="Cambria" size="11.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="986.0" layoutY="704.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Software &amp; web Engineer" wrappingWidth="123.66943359375">
+                           <font>
+                              <Font name="Cambria" size="11.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="1043.0" layoutY="682.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WSAI-E S.A.S " wrappingWidth="63.66943359375">
+                           <font>
+                              <Font name="Cambria" size="11.0" />
+                           </font>
+                        </Text>
+                        <ImageView fitHeight="604.0" fitWidth="827.0" layoutX="283.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Assets/Img/icons/0db552776c1fe556ba00.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="109.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N'appler plus le secrétariat prenez votre rendez directement sur la plateforme DoctoLib" wrappingWidth="481.99999605864286">
+                           <font>
+                              <Font name="Century Gothic" size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="109.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tout ce que vous avez à faire c'est vous rendre sur la plateforme, séléctionner votre médecin traitant et voir ces diponibilitées en direct" wrappingWidth="481.99999605864286">
+                           <font>
+                              <Font name="Century Gothic" size="15.0" />
+                           </font>
+                        </Text>
+                        <Line endX="359.0" layoutX="207.0" layoutY="335.0" startX="-100.0" stroke="WHITE" strokeWidth="0.5" />
+                     </children>
+                  </AnchorPane>
+                  <HBox alignment="CENTER" prefHeight="196.0" prefWidth="691.0">
+                     <children>
+                        <AnchorPane prefHeight="217.0" prefWidth="333.0" style="-fx-background-color: #fff; -fx-border-radius: 20; -fx-background-color: linear-gradient(to right, #04EBFC,#17D9FA, #26CDFA, #3ABBFA, #46B0FA, #49AFFC);" styleClass="otp" stylesheets="@../Application/Style.css">
+                           <children>
+                              <Text fill="WHITE" fontSmoothingType="LCD" layoutX="58.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #000;" text="Dr Vlanivic">
+                                 <font>
+                                    <Font name="Century Gothic" size="17.0" />
+                                 </font>
+                              </Text>
+                              <Button cacheShape="false" centerShape="false" contentDisplay="TOP" focusTraversable="false" layoutX="14.0" layoutY="138.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="151.0" scaleShape="false" style="-fx-background-color: TRANSPARENT; -fx-text-fill: #fff; -fx-border-color: #fff;" text="Discover">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Text fill="WHITE" layoutX="14.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder; -fx-font-size: 15; -fx-font-family: Century Gothic;" text="Gynécologie : quelles situations sont adaptées à la consultation vidéo ?" wrappingWidth="225.279296875" />
+                              <ImageView fitHeight="39.0" fitWidth="43.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/Img/icons/Male-ideal-beauty-modified.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="122.0" fitWidth="97.0" layoutX="239.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/Img/icons/pw60vyfe3qa8vlwnmi2hi7ux8j57.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="217.0" prefWidth="333.0" style="-fx-background-color: #fff; -fx-border-radius: 20; -fx-background-color: linear-gradient(to right, #04EBFC,#17D9FA, #26CDFA, #3ABBFA, #46B0FA, #49AFFC);" styleClass="otp" stylesheets="@../Application/Style.css">
+                           <children>
+                              <Text fill="WHITE" fontSmoothingType="LCD" layoutX="58.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #000;" text="Dr Vlanivic">
+                                 <font>
+                                    <Font name="Century Gothic" size="17.0" />
+                                 </font>
+                              </Text>
+                              <Button cacheShape="false" centerShape="false" contentDisplay="TOP" focusTraversable="false" layoutX="14.0" layoutY="138.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="151.0" scaleShape="false" style="-fx-background-color: TRANSPARENT; -fx-text-fill: #fff; -fx-border-color: #fff;" text="Here we go">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Text fill="WHITE" layoutX="14.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder; -fx-font-size: 15; -fx-font-family: Century Gothic;" text="Grossesse : rencontrez 5 expertes lors de notre évènement en ligne" wrappingWidth="225.279296875" />
+                              <ImageView fitHeight="39.0" fitWidth="43.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/Img/icons/Male-ideal-beauty-modified.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="122.0" fitWidth="97.0" layoutX="239.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/Img/icons/hb64mu3aeus2l58ns1y654bqn23c.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="217.0" prefWidth="333.0" style="-fx-background-color: #fff; -fx-border-radius: 20; -fx-background-color: linear-gradient(to right, #04EBFC,#17D9FA, #26CDFA, #3ABBFA, #46B0FA, #49AFFC);" styleClass="otp" stylesheets="@../Application/Style.css">
+                           <children>
+                              <Text fill="WHITE" fontSmoothingType="LCD" layoutX="58.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #000;" text="Dr Vlanivic">
+                                 <font>
+                                    <Font name="Century Gothic" size="17.0" />
+                                 </font>
+                              </Text>
+                              <Button cacheShape="false" centerShape="false" contentDisplay="TOP" focusTraversable="false" layoutX="14.0" layoutY="138.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="151.0" scaleShape="false" style="-fx-background-color: TRANSPARENT; -fx-text-fill: #fff; -fx-border-color: #fff;" text="Descover">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Text fill="WHITE" layoutX="14.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder; -fx-font-size: 15; -fx-font-family: Century Gothic;" text="Partagez vos documents de santé en quelques clics depuis votre compte" wrappingWidth="225.279296875" />
+                              <ImageView fitHeight="39.0" fitWidth="43.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/Img/icons/Male-ideal-beauty-modified.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="122.0" fitWidth="97.0" layoutX="239.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/Img/icons/9dkxr3l4txp3zaor8046dlsoxb9b.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+                     <children>
+                        <AnchorPane prefHeight="100.0" prefWidth="355.0">
+                           <children>
+                              <Text fill="#9e9e9e" layoutX="26.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In your Health service">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="29.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#9e9e9e" layoutX="116.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DoctoLib">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="29.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="250.0" prefWidth="1181.0" style="-fx-background-color: linear-gradient(To bottom,#e6f6fd,#f6fcfe);">
+                     <children>
+                        <AnchorPane prefHeight="250.0" prefWidth="325.0">
+                           <children>
+                              <ImageView fitHeight="180.0" fitWidth="145.0" layoutX="97.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/Img/icons/9dkxr3l4txp3zaor8046dlsoxb9b.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#808080" layoutX="45.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder; -fx-font-size: 15; -fx-font-family: Century Gothic;" text="Grossesse : rencontrez 5 expertes lors de notre évènement en ligne" wrappingWidth="234.279296875" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="250.0" prefWidth="325.0">
+                           <children>
+                              <ImageView fitHeight="180.0" fitWidth="145.0" layoutX="97.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/Img/icons/9dkxr3l4txp3zaor8046dlsoxb9b.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#808080" layoutX="35.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder; -fx-font-size: 15; -fx-font-family: Century Gothic;" text="Une communauté de praticiens pour vous accompagner. En savoir plus" wrappingWidth="255.279296875" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="250.0" prefWidth="325.0">
+                           <children>
+                              <ImageView fitHeight="180.0" fitWidth="145.0" layoutX="97.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/Img/icons/9dkxr3l4txp3zaor8046dlsoxb9b.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#808080" layoutX="7.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder; -fx-font-size: 15; -fx-font-family: Century Gothic;" text="Gérez vos rendez-vous et documents de santé ainsi que ceux de vos proches sur une même application. " wrappingWidth="311.279296875" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="179.0" prefWidth="1124.0">
+                     <children>
+                        <AnchorPane prefHeight="221.0" prefWidth="1124.0" style="-fx-background-color: linear-gradient(to right, #04EBFC,#17D9FA, #26CDFA, #3ABBFA, #46B0FA, #49AFFC);">
+                           <children>
+                              <Text fill="WHITE" layoutX="127.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DoctoLib">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="29.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="144.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c'est...">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="29.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" fontSmoothingType="LCD" layoutX="383.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #000;" text="70 millions">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="26.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" fontSmoothingType="LCD" layoutX="404.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #000;" text="de patiens">
+                                 <font>
+                                    <Font name="Century Gothic" size="17.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" fontSmoothingType="LCD" layoutX="633.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #000;" text="340 000">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="26.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" fontSmoothingType="LCD" layoutX="598.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #000;" text="personnels de santé">
+                                 <font>
+                                    <Font name="Century Gothic" size="17.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" fontSmoothingType="LCD" layoutX="862.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #000;" text="97%">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="26.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" fontSmoothingType="LCD" layoutX="843.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #000;" text="Avis positifs">
+                                 <font>
+                                    <Font name="Century Gothic" size="17.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="250.0" prefWidth="1181.0" style="-fx-background-color: linear-gradient(To bottom,#e6f6fd,#f6fcfe);">
+                     <children>
+                        <AnchorPane prefHeight="250.0" prefWidth="325.0">
+                           <children>
+                              <ImageView fitHeight="180.0" fitWidth="145.0" layoutX="97.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/Img/icons/9dkxr3l4txp3zaor8046dlsoxb9b.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#808080" layoutX="45.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder; -fx-font-size: 15; -fx-font-family: Century Gothic;" text="Grossesse : rencontrez 5 expertes lors de notre évènement en ligne" wrappingWidth="234.279296875" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="250.0" prefWidth="325.0">
+                           <children>
+                              <ImageView fitHeight="180.0" fitWidth="145.0" layoutX="97.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/Img/icons/9dkxr3l4txp3zaor8046dlsoxb9b.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#808080" layoutX="35.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder; -fx-font-size: 15; -fx-font-family: Century Gothic;" text="Une communauté de praticiens pour vous accompagner. En savoir plus" wrappingWidth="255.279296875" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="250.0" prefWidth="325.0">
+                           <children>
+                              <ImageView fitHeight="180.0" fitWidth="145.0" layoutX="97.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/Img/icons/9dkxr3l4txp3zaor8046dlsoxb9b.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#808080" layoutX="7.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder; -fx-font-size: 15; -fx-font-family: Century Gothic;" text="Gérez vos rendez-vous et documents de santé ainsi que ceux de vos proches sur une même application. " wrappingWidth="311.279296875" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </left>
+   <center>
+      <AnchorPane minHeight="-Infinity" prefHeight="543.0" prefWidth="634.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane id="loginFrame" fx:id="signUpFrame" prefHeight="543.0" prefWidth="476.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="45.0" layoutX="34.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Assets/Img/Logoapp.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#00b2ff" layoutX="185.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+                     <font>
+                        <Font name="Century Gothic Bold" size="29.0" />
+                     </font>
+                  </Text>
+                  <Button id="btnLogin" fx:id="btnLogin" layoutX="263.0" layoutY="277.0" mnemonicParsing="false" onAction="#toLogin" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #1F8FE8; -fx-text-fill: #FFF;" text="Log in" />
+                  <TextField fx:id="username" layoutX="95.0" layoutY="150.0" prefHeight="37.0" prefWidth="302.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-bottom: 1px solid #000;" />
+                  <Line endX="201.0" layoutX="195.0" layoutY="188.0" startX="-100.0" strokeWidth="0.5" />
+                  <TextField fx:id="password" layoutX="94.0" layoutY="201.0" prefHeight="37.0" prefWidth="302.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-bottom: 1px solid #000;" />
+                  <Line endX="201.0" layoutX="194.0" layoutY="239.0" startX="-100.0" strokeWidth="0.5" />
+                  <Label layoutX="97.0" layoutY="289.0" text="Forget password ?" textFill="#3075ae">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Button layoutX="100.0" layoutY="426.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="275.0" style="-fx-background-color: #0C39FF; -fx-border-radius: 5;" text="Connect with Facebook" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button layoutX="100.0" layoutY="374.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="275.0" style="-fx-background-color: #D84834; -fx-border-radius: 5;" text="Connect with Google" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Separator layoutX="256.0" layoutY="353.0" prefHeight="3.0" prefWidth="113.0" />
+                  <Label layoutX="228.0" layoutY="346.0" text="OR" />
+                  <Separator layoutX="101.0" layoutY="354.0" prefHeight="3.0" prefWidth="113.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane id="signinFrame" fx:id="signinFrame" prefHeight="734.0" prefWidth="476.0" style="-fx-background-color: linear-gradient(to left, #480ca8,#4cc9f0);" AnchorPane.leftAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="45.0" layoutX="26.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Assets/Img/Logoapp.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="185.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign In">
+                     <font>
+                        <Font name="Century Gothic Bold" size="29.0" />
+                     </font>
+                  </Text>
+                  <Button id="btnSignIn" fx:id="btnSignIn" blendMode="GREEN" layoutX="278.0" layoutY="646.0" mnemonicParsing="false" onAction="#toSignIn" prefHeight="50.0" prefWidth="148.0" style="-fx-background-color: traparent; -fx-text-fill: #fff; -fx-border-color: #fff;" text="Sign In">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <TextField fx:id="userNameSignin" layoutX="44.0" layoutY="110.0" prefHeight="37.0" prefWidth="377.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-bottom: 1px solid #000;" />
+                  <Line blendMode="GREEN" endX="221.0" endY="-1.0" layoutX="195.0" layoutY="148.0" startX="-151.0" startY="-1.0" stroke="WHITE" strokeWidth="0.5" />
+                  <TextField fx:id="passwordSignin" layoutX="42.0" layoutY="161.0" prefHeight="37.0" prefWidth="375.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-bottom: 1px solid #000;" />
+                  <Line blendMode="GREEN" endX="223.0" endY="-1.0" layoutX="194.0" layoutY="199.0" startX="-152.0" startY="-1.0" stroke="WHITE" strokeWidth="0.5" />
+                  <TextField fx:id="confirmePassword" layoutX="41.0" layoutY="215.0" prefHeight="37.0" prefWidth="376.0" promptText="Comfirme password" style="-fx-background-color: transparent; -fx-border-bottom: 1px solid #000;" />
+                  <Line blendMode="GREEN" endX="223.0" endY="-1.0" layoutX="194.0" layoutY="253.0" startX="-148.0" startY="-1.0" stroke="WHITE" strokeWidth="0.5" />
+                  <DatePicker fx:id="birthDate" blendMode="GREEN" disable="true" layoutX="187.0" layoutY="332.0" prefHeight="36.0" prefWidth="230.0" style="-fx-background-color: trasparent;" />
+                  <Text blendMode="GREEN" fill="WHITE" layoutX="50.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date de naissance :" wrappingWidth="138.9830722808838" />
+                  <TextField fx:id="siretNum" disable="true" layoutX="48.0" layoutY="381.0" prefHeight="37.0" prefWidth="373.0" promptText="N° de siret" style="-fx-background-color: transparent; -fx-border-bottom: 1px solid #000;" />
+                  <Line blendMode="GREEN" endX="225.0" layoutX="196.0" layoutY="418.0" startX="-141.0" stroke="WHITE" strokeWidth="0.5" />
+                  <ImageView fx:id="softExit" fitHeight="29.0" fitWidth="41.0" layoutX="427.0" layoutY="19.0" onMouseClicked="#exitSoft" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Assets/Img/ExitSW.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Text blendMode="GREEN" disable="true" fill="WHITE" layoutX="62.0" layoutY="601.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spécialité :" wrappingWidth="138.9830722808838" />
+                  <TextField fx:id="adresse" disable="true" layoutX="50.0" layoutY="440.0" prefHeight="37.0" prefWidth="371.0" promptText="Adresse" style="-fx-background-color: transparent; -fx-border-bottom: 1px solid #000;" />
+                  <Line blendMode="GREEN" endX="223.0" layoutX="198.0" layoutY="477.0" startX="-141.0" stroke="WHITE" strokeWidth="0.5" />
+                  <TextField fx:id="cp" disable="true" layoutX="51.0" layoutY="506.0" prefHeight="37.0" prefWidth="158.0" promptText="Code postale" style="-fx-background-color: transparent; -fx-border-bottom: 1px solid #000;" />
+                  <TextField fx:id="ville" disable="true" layoutX="224.0" layoutY="506.0" prefHeight="37.0" prefWidth="197.0" promptText="Ville" style="-fx-background-color: transparent; -fx-border-bottom: 1px solid #000;" />
+                  <Line blendMode="GREEN" endX="5.0" layoutX="204.0" layoutY="543.0" startX="-144.0" stroke="WHITE" strokeWidth="0.5" />
+                  <Line blendMode="GREEN" endX="96.0" layoutX="325.0" layoutY="543.0" startX="-100.0" stroke="WHITE" strokeWidth="0.5" />
+                  <ChoiceBox fx:id="speChoice" blendMode="GREEN" disable="true" layoutX="143.0" layoutY="574.0" prefHeight="45.0" prefWidth="280.0" style="-fx-background-color: transparent; -fx-border-color: #fff;" />
+                  <TextField fx:id="mail" disable="true" layoutX="62.0" layoutY="652.0" prefHeight="37.0" prefWidth="196.0" promptText="Mail" style="-fx-background-color: transparent; -fx-border-bottom: 1px solid #000;" />
+                  <Line blendMode="GREEN" disable="true" endX="139.0" layoutX="119.0" layoutY="689.0" startX="-57.0" stroke="WHITE" strokeWidth="0.5" />
+                  <CheckBox fx:id="doct" blendMode="GREEN" layoutX="45.0" layoutY="284.0" mnemonicParsing="false" onAction="#checkedDr" style="-fx-font-size: 20;" text="Je suis Docteur" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
