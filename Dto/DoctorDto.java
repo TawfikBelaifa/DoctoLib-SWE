@@ -1,6 +1,6 @@
 package Dto;
 
-public class profilDto {
+public class DoctorDto {
 
 	private Integer id;	
 	private String userName;
@@ -11,6 +11,7 @@ public class profilDto {
 	private String cp;
 	private String ville;
 	private String mail;
+
 	private String spe;
 	private String Tel;
 	private String hoj;
@@ -19,7 +20,17 @@ public class profilDto {
 	
 	
 	
-	public profilDto(Integer id, String userName, String password, String birth, String siret, String adresse,
+	public DoctorDto() {
+		super();
+	}
+	
+	public DoctorDto(String userName, String password) {
+		super();
+		this.userName = userName;
+		this.password = password;
+	}
+	
+	public DoctorDto(Integer id, String userName, String password, String birth, String siret, String adresse,
 			String cp, String ville, String mail, String spe, String tel, String hoj, String hoh, String description) {
 		super();
 		this.id = id;

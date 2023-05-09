@@ -81,7 +81,8 @@ public class ProfilController implements Initializable {
     			&& !descrp.getText().isEmpty()
     			) {
     		
-    		System.out.println(descrp.getText());
+    		
+    		
     		
     		
     	}

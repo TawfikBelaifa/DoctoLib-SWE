@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import BuisnessLogic.userConnexionImpl;
-import Dto.userDto;
+import BuisnessLogic.DoctorConnexionImpl;
+import BuisnessLogic.PatientConnexionImpl;
+import Dto.DoctorDto;
+import Dto.PatientDto;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -87,6 +89,9 @@ public class SignInUpController implements Initializable{
 
 	    @FXML
 	    private CheckBox doct;
+	    
+	    @FXML
+	    private CheckBox doctConnexion;
 
 	    @FXML
 	    private ChoiceBox<String> speChoice;
@@ -126,10 +131,13 @@ public class SignInUpController implements Initializable{
     @FXML
     void toLogin() throws IOException {
     	if( !username.getText().isEmpty() && !password.getText().isEmpty()) {
-    		//if(doct.isPressed()) {
-    			userConnexionImpl coImpl = new userConnexionImpl();
-            	userDto res = coImpl.findOneByU_P(new userDto(username.getText(), password.getText()), this);
-    		//}
+    		if(doctConnexion.isSelected()) {
+    			DoctorConnexionImpl DrCoImpl = new DoctorConnexionImpl();
+    			DrCoImpl.findOneByU_P(new DoctorDto(username.getText(), password.getText()), this);
+    		}else {
+    			PatientConnexionImpl PaCoImpl = new PatientConnexionImpl();
+    			PaCoImpl.findOneByU_P(new PatientDto(username.getText(), password.getText()), this);
+    		}
     		
     	}else {
     		Alert alert = new Alert(AlertType.ERROR,"ez remplir tout les champs", ButtonType.OK);
@@ -313,8 +321,8 @@ public class SignInUpController implements Initializable{
 	public void toSignIn() {
     	if( !userNameSignin.getText().isEmpty() && !speChoice.getValue().isEmpty()  && !speChoice.getValue().isEmpty() && !passwordSignin.getText().isEmpty() &&  !confirmePassword.getText().isEmpty() && (birthDate.getValue().getMonthValue() != 0) && !siretNum.getText().isEmpty()) {
     		if(passwordSignin.getText().equalsIgnoreCase(confirmePassword.getText())) {
-    			userConnexionImpl coImpl = new userConnexionImpl();
-            	coImpl.save(new userDto(userNameSignin.getText(), passwordSignin.getText(), birthDate.getValue().toString(),Integer.valueOf(siretNum.getText()), Integer.valueOf(cp.getText()) , ville.getText(), speChoice.getValue(), adresse.getText()));
+    			PatientConnexionImpl coImpl = new PatientConnexionImpl();
+            	coImpl.save(new PatientDto(userNameSignin.getText(), passwordSignin.getText(), birthDate.getValue().toString(),Integer.valueOf(siretNum.getText()), Integer.valueOf(cp.getText()) , ville.getText(), speChoice.getValue(), adresse.getText()));
             	Alert alert = new Alert(AlertType.CONFIRMATION,"Inscription réussi", ButtonType.NEXT);
 	    		alert.showAndWait();
 	    		ToMoveLogIn();

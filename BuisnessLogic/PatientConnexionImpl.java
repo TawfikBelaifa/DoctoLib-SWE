@@ -5,24 +5,24 @@ import java.util.List;
 
 import Controllers.HomeController;
 import Controllers.SignInUpController;
-import Dao.userConnexionDAO;
-import Dto.userDto;
+import Dao.PatientConnexionDAO;
+import Dto.PatientDto;
 import InterfaceMetier.IBLog;
 import StaticClass.Logger;
+import StaticClass.UserSession;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class userConnexionImpl implements IBLog<userDto, Integer, SignInUpController>{
+public class PatientConnexionImpl implements IBLog<PatientDto, Integer, SignInUpController>{
 
 	@Override
-	public void save(userDto o) {
+	public void save(PatientDto o) {
 		
-			userConnexionDAO.getDao().save(o);
+			PatientConnexionDAO.getDao().save(o);
 			try {
 				Logger.readLog();
 			} catch (IOException e) {
@@ -33,7 +33,7 @@ public class userConnexionImpl implements IBLog<userDto, Integer, SignInUpContro
 	}
 
 	@Override
-	public void update(userDto o) {
+	public void update(PatientDto o) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -45,7 +45,7 @@ public class userConnexionImpl implements IBLog<userDto, Integer, SignInUpContro
 	}
 
 	@Override
-	public userDto findOne(Integer id) {
+	public PatientDto findOne(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -56,15 +56,14 @@ public class userConnexionImpl implements IBLog<userDto, Integer, SignInUpContro
 		return null;
 	}
 
-	@Override
-	public userDto findOneByU_P(userDto o, SignInUpController signInUpController) {
-		userDto dto = new userDto();
+	public PatientDto findOneByU_P(PatientDto o, SignInUpController signInUpController) {
+		PatientDto dto = new PatientDto();
 		try {
-			dto =  userConnexionDAO.getDao().findOneByU_P(o);
+			dto =  PatientConnexionDAO.getDao().findOneByU_P(o);
 			
 			if(dto != null) {
-				((SignInUpController) signInUpController).getSystemApp().getScene().getWindow().hide();
-	    		
+				signInUpController.getSystemApp().getScene().getWindow().hide();
+				UserSession.sessionCreate(dto.getUsername(), dto.getId(), null);
 	    		try {
 	    	    		Stage home = new Stage();
 	    	    		FXMLLoader loader = new FXMLLoader();
@@ -77,7 +76,9 @@ public class userConnexionImpl implements IBLog<userDto, Integer, SignInUpContro
 	    				//home.initStyle(StageStyle.UTILITY);
 	    				home.show();
 	    				home.setTitle("DoctoLib");
-				} catch (IOException e) {
+	    				
+	    				
+	    		} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -96,7 +97,7 @@ public class userConnexionImpl implements IBLog<userDto, Integer, SignInUpContro
 	}
 
 	@Override
-	public userDto findOneByU_P(userDto o) {
+	public PatientDto findOneByU_P(PatientDto o) {
 		// TODO Auto-generated method stub
 		return null;
 	}

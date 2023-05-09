@@ -1,6 +1,6 @@
 package Dto;
 
-public class userDto{
+public class PatientDto{
 
 	private Integer id;
 	private String username;
@@ -15,7 +15,7 @@ public class userDto{
 	
 
 
-	public userDto(String username, String password, String birth, Integer siret, Integer cp, String ville,
+	public PatientDto(String username, String password, String birth, Integer siret, Integer cp, String ville,
 			String speChoice, String adresse) {
 		super();
 		this.username = username;
@@ -29,7 +29,7 @@ public class userDto{
 	}
 
 
-	public userDto(Integer id, String username, String password, String birth, Integer siret, Integer cp, String ville,
+	public PatientDto(Integer id, String username, String password, String birth, Integer siret, Integer cp, String ville,
 			String speChoice, String adresse) {
 		super();
 		this.id = id;
@@ -84,14 +84,14 @@ public class userDto{
 	}
 
 
-	public userDto(String username, String password) {
+	public PatientDto(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
 	}
 
 
-	public userDto(Integer id, String username, String password, Integer siret) {
+	public PatientDto(Integer id, String username, String password, Integer siret) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -100,7 +100,7 @@ public class userDto{
 	}
 
 
-	public userDto(String username, String password, String birth, Integer siret) {
+	public PatientDto(String username, String password, String birth, Integer siret) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -109,12 +109,12 @@ public class userDto{
 	}
 
 
-	public userDto() {
+	public PatientDto() {
 		super();
 	}
 
 
-	public userDto(Integer id, String username, String password, String birth, Integer siret) {
+	public PatientDto(Integer id, String username, String password, String birth, Integer siret) {
 		super();
 		this.id = id;
 		this.username = username;

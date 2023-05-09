@@ -329,12 +329,12 @@
                         <Font name="Century Gothic Bold" size="29.0" />
                      </font>
                   </Text>
-                  <Button id="btnLogin" fx:id="btnLogin" layoutX="263.0" layoutY="277.0" mnemonicParsing="false" onAction="#toLogin" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #1F8FE8; -fx-text-fill: #FFF;" text="Log in" />
+                  <Button id="btnLogin" fx:id="btnLogin" layoutX="263.0" layoutY="325.0" mnemonicParsing="false" onAction="#toLogin" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #1F8FE8; -fx-text-fill: #FFF;" text="Log in" />
                   <TextField fx:id="username" layoutX="95.0" layoutY="150.0" prefHeight="37.0" prefWidth="302.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-bottom: 1px solid #000;" />
                   <Line endX="201.0" layoutX="195.0" layoutY="188.0" startX="-100.0" strokeWidth="0.5" />
                   <TextField fx:id="password" layoutX="94.0" layoutY="201.0" prefHeight="37.0" prefWidth="302.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-bottom: 1px solid #000;" />
                   <Line endX="201.0" layoutX="194.0" layoutY="239.0" startX="-100.0" strokeWidth="0.5" />
-                  <Label layoutX="97.0" layoutY="289.0" text="Forget password ?" textFill="#3075ae">
+                  <Label layoutX="97.0" layoutY="337.0" text="Forget password ?" textFill="#3075ae">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -342,19 +342,20 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Label>
-                  <Button layoutX="100.0" layoutY="426.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="275.0" style="-fx-background-color: #0C39FF; -fx-border-radius: 5;" text="Connect with Facebook" textFill="WHITE">
+                  <Button layoutX="100.0" layoutY="474.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="275.0" style="-fx-background-color: #0C39FF; -fx-border-radius: 5;" text="Connect with Facebook" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button layoutX="100.0" layoutY="374.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="275.0" style="-fx-background-color: #D84834; -fx-border-radius: 5;" text="Connect with Google" textFill="WHITE">
+                  <Button layoutX="100.0" layoutY="422.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="275.0" style="-fx-background-color: #D84834; -fx-border-radius: 5;" text="Connect with Google" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Separator layoutX="256.0" layoutY="353.0" prefHeight="3.0" prefWidth="113.0" />
-                  <Label layoutX="228.0" layoutY="346.0" text="OR" />
-                  <Separator layoutX="101.0" layoutY="354.0" prefHeight="3.0" prefWidth="113.0" />
+                  <Separator layoutX="256.0" layoutY="401.0" prefHeight="3.0" prefWidth="113.0" />
+                  <Label layoutX="228.0" layoutY="394.0" text="OR" />
+                  <Separator layoutX="101.0" layoutY="402.0" prefHeight="3.0" prefWidth="113.0" />
+                  <CheckBox fx:id="doctConnexion" layoutX="94.0" layoutY="280.0" mnemonicParsing="false" text="Je suis Docteur" />
                </children>
             </AnchorPane>
             <AnchorPane id="signinFrame" fx:id="signinFrame" prefHeight="734.0" prefWidth="476.0" style="-fx-background-color: linear-gradient(to left, #480ca8,#4cc9f0);" AnchorPane.leftAnchor="0.0">

@@ -8,27 +8,33 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Dto.userDto;
+import Dto.PatientDto;
 import Exception.userConnexion.moreThanOneUserException;
 import Exception.userConnexion.notFoundUserException;
 import InterfaceMetier.IBLog2P;
 import StaticClass.ConnexionMysql;
 import StaticClass.Logger;
 
-public class userConnexionDAO implements IBLog2P<userDto, Integer>{
+public class PatientConnexionDAO implements IBLog2P<PatientDto, Integer>{
 
 	private static String TABLE = "user";
 	private static Connection cnx;
 	
-	public static userConnexionDAO getDao() {
-		return new userConnexionDAO();
+	public static PatientConnexionDAO getDao() {
+		try {
+			cnx = ConnexionMysql.cconnexionBD();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new PatientConnexionDAO();
 	}
 
 	@Override
-	public void save(userDto o) {
+	public void save(PatientDto o) {
 		PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        userDto dto = null;
+        PatientDto dto = null;
         StringBuffer sb = new StringBuffer();
 		sb.append("INSERT INTO ");
 		sb.append(TABLE);
@@ -46,13 +52,9 @@ public class userConnexionDAO implements IBLog2P<userDto, Integer>{
 		sb.append("id,?,?,?,?,?,?,?,?");
 		sb.append(")");
 		try {
-			cnx = ConnexionMysql.cconnexionBD();
 			preparedStatement =  cnx.prepareStatement(sb.toString());
 			Logger.whriteLog(String.valueOf(preparedStatement));
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -92,7 +94,7 @@ public class userConnexionDAO implements IBLog2P<userDto, Integer>{
 	}
 
 	@Override
-	public void update(userDto o) {
+	public void update(PatientDto o) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -104,7 +106,7 @@ public class userConnexionDAO implements IBLog2P<userDto, Integer>{
 	}
 
 	@Override
-	public userDto findOne(Integer id) {
+	public PatientDto findOne(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -117,8 +119,8 @@ public class userConnexionDAO implements IBLog2P<userDto, Integer>{
 		sb.append("siret");
 	}
 	
-	private userDto rowToObject(ResultSet resultSet) throws Exception {
-		userDto dto = new userDto();
+	private PatientDto rowToObject(ResultSet resultSet) throws Exception {
+		PatientDto dto = new PatientDto();
 		int index = 1;
 		dto.setId(new Integer(resultSet.getInt(index++)));
 		dto.setUsername(resultSet.getString(index++));
@@ -129,12 +131,11 @@ public class userConnexionDAO implements IBLog2P<userDto, Integer>{
 	}
 
 	@Override
-	public userDto findOneByU_P(userDto o) {
+	public PatientDto findOneByU_P(PatientDto o) {
 		PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        userDto dto = null;
+        PatientDto dto = null;
         try {
-        	cnx = ConnexionMysql.cconnexionBD();
 			StringBuffer sb = new StringBuffer();
 			sb.append("SELECT ");
 			this.appendProjection(sb);
@@ -149,7 +150,7 @@ public class userConnexionDAO implements IBLog2P<userDto, Integer>{
 			
 			resultSet = preparedStatement.executeQuery();
 			Logger.whriteLog(String.valueOf(preparedStatement));
-			ArrayList<userDto> result = new ArrayList<userDto>();
+			ArrayList<PatientDto> result = new ArrayList<PatientDto>();
 			while (resultSet.next()) {
 			    result.add(rowToObject(resultSet));
 			}
@@ -184,7 +185,7 @@ public class userConnexionDAO implements IBLog2P<userDto, Integer>{
 	}
 
 	@Override
-	public List<userDto> findAll() {
+	public List<PatientDto> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
