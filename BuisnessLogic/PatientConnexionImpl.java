@@ -63,7 +63,7 @@ public class PatientConnexionImpl implements IBLog<PatientDto, Integer, SignInUp
 			
 			if(dto != null) {
 				signInUpController.getSystemApp().getScene().getWindow().hide();
-				UserSession.sessionCreate(dto.getUsername(), dto.getId(), null);
+				UserSession.sessionCreate(dto.getUserName(), dto.getID(), null);
 	    		try {
 	    	    		Stage home = new Stage();
 	    	    		FXMLLoader loader = new FXMLLoader();
@@ -71,7 +71,7 @@ public class PatientConnexionImpl implements IBLog<PatientDto, Integer, SignInUp
 	    				//signInUpController.setFxml(loader.load());
 	    				Scene scene = new Scene(loader.load());
 		    			HomeController HC = loader.getController();
-		    			HC.setUSER_SOFT("Bonjour DR. "+dto.getUsername()+" !");
+		    			HC.setUSER_SOFT("Bonjour DR. "+dto.getUserName()+" !");
 	    				home.setScene(scene);
 	    				//home.initStyle(StageStyle.UTILITY);
 	    				home.show();

@@ -70,7 +70,7 @@ public class DoctorConnexionImpl implements IBLog<DoctorDto, Integer, SignInUpCo
 			
 			if(dto != null) {
 				c.getSystemApp().getScene().getWindow().hide();
-				UserSession.sessionCreate(dto.getUserName(), dto.getId(), null);
+				UserSession.sessionCreate(dto.getUserName(), dto.getID(), null);
 	    		try {
 	    	    		Stage home = new Stage();
 	    	    		FXMLLoader loader = new FXMLLoader();

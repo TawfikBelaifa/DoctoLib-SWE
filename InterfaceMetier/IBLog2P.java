@@ -12,7 +12,6 @@ public interface IBLog2P<T,U> {
 	public T findOne(U id);
 	public T findOneByU_P(T o);
 	public List<T> findAll();
-	PatientDto findOneByU_P(PatientDto o);
 	
 }
 

@@ -71,10 +71,10 @@ public class DoctorConnexionDAO implements IBLog<DoctorDto, Integer, ProfilContr
 			preparedStatement = cnx.prepareStatement(sb.toString());
 			
 			Integer index = 0;
-			preparedStatement.setInt(index++, o.getId());
+			preparedStatement.setInt(index++, o.getID());
 			preparedStatement.setString(index++, o.getUserName());
 			preparedStatement.setString(index++, o.getAdresse());
-			preparedStatement.setString(index++, o.getCp());
+			preparedStatement.setInt(index++, o.getCp());
 			preparedStatement.setString(index++, o.getVille());
 			preparedStatement.setString(index++, o.getMail());
 			preparedStatement.setString(index++, o.getTel());

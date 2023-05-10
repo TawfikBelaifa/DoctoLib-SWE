@@ -63,14 +63,12 @@ public class PatientConnexionDAO implements IBLog2P<PatientDto, Integer>{
 		}
 		int index = 1;
 		try {
-			preparedStatement.setString(index++, o.getUsername());
+			preparedStatement.setString(index++, o.getUserName());
 			preparedStatement.setString(index++, o.getPassword());
 			preparedStatement.setString(index++, o.getBirth());
-			preparedStatement.setInt(index++, o.getSiret());
 			preparedStatement.setInt(index++, o.getCp());
 			preparedStatement.setString(index++, o.getVille());
 			preparedStatement.setString(index++, o.getAdresse());
-			preparedStatement.setString(index++, o.getSpeChoice());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -122,11 +120,10 @@ public class PatientConnexionDAO implements IBLog2P<PatientDto, Integer>{
 	private PatientDto rowToObject(ResultSet resultSet) throws Exception {
 		PatientDto dto = new PatientDto();
 		int index = 1;
-		dto.setId(new Integer(resultSet.getInt(index++)));
-		dto.setUsername(resultSet.getString(index++));
+		dto.setID(new Integer(resultSet.getInt(index++)));
+		dto.setUserName(resultSet.getString(index++));
 		dto.setPassword(resultSet.getString(index++));
 		dto.setBirth(resultSet.getString(index++));
-		dto.setSiret(new Integer(resultSet.getInt(index++)));
 		return dto;
 	}
 
@@ -145,7 +142,7 @@ public class PatientConnexionDAO implements IBLog2P<PatientDto, Integer>{
 			sb.append(" AND password = ? ");
 			preparedStatement = cnx.prepareStatement(sb.toString());
 			
-			preparedStatement.setString(1, o.getUsername());
+			preparedStatement.setString(1, o.getUserName());
 			preparedStatement.setString(2, o.getPassword());
 			
 			resultSet = preparedStatement.executeQuery();

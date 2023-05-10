@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import BuisnessLogic.ConnexionIMPL;
 import BuisnessLogic.DoctorConnexionImpl;
 import BuisnessLogic.PatientConnexionImpl;
 import Dto.DoctorDto;
@@ -320,15 +321,17 @@ public class SignInUpController implements Initializable{
 
 	public void toSignIn() {
     	if( !userNameSignin.getText().isEmpty() && !speChoice.getValue().isEmpty()  && !speChoice.getValue().isEmpty() && !passwordSignin.getText().isEmpty() &&  !confirmePassword.getText().isEmpty() && (birthDate.getValue().getMonthValue() != 0) && !siretNum.getText().isEmpty()) {
-    		if(passwordSignin.getText().equalsIgnoreCase(confirmePassword.getText())) {
-    			PatientConnexionImpl coImpl = new PatientConnexionImpl();
-            	coImpl.save(new PatientDto(userNameSignin.getText(), passwordSignin.getText(), birthDate.getValue().toString(),Integer.valueOf(siretNum.getText()), Integer.valueOf(cp.getText()) , ville.getText(), speChoice.getValue(), adresse.getText()));
-            	Alert alert = new Alert(AlertType.CONFIRMATION,"Inscription réussi", ButtonType.NEXT);
-	    		alert.showAndWait();
-	    		ToMoveLogIn();
-    		}else {
-    			Alert alert = new Alert(AlertType.ERROR,"Mot de passe incorrect", ButtonType.OK);
-	    		alert.showAndWait();
+    		if(true) {
+	    		if(passwordSignin.getText().equalsIgnoreCase(confirmePassword.getText())) {
+	    			ConnexionIMPL<PatientDto, Integer, SignInUpController> coImpl = new ConnexionIMPL<PatientDto, Integer, SignInUpController>();
+	            	coImpl.save(new PatientDto(userNameSignin.getText(), passwordSignin.getText(), birthDate.getValue().toString(),Integer.valueOf(siretNum.getText()), Integer.valueOf(cp.getText()) , ville.getText(), adresse.getText()));
+	            	Alert alert = new Alert(AlertType.CONFIRMATION,"Inscription réussi", ButtonType.NEXT);
+		    		alert.showAndWait();
+		    		ToMoveLogIn();
+	    		}else {
+	    			Alert alert = new Alert(AlertType.ERROR,"Mot de passe incorrect", ButtonType.OK);
+		    		alert.showAndWait();
+	    		}
     		}
        	}
     }
