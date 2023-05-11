@@ -208,3 +208,8 @@ com.mysql.jdbc.JDBC4PreparedStatement@18cb2685: SELECT id, userName, password, b
 com.mysql.jdbc.JDBC4PreparedStatement@23ca167b: SELECT id, userName, password, birth, siret FROM user WHERE userName = 'a'  AND password = 'a'  --- Sat May 06 20:29:11 CEST 2023
 com.mysql.jdbc.JDBC4PreparedStatement@20d70673: SELECT id, userName, password, birth, siret FROM user WHERE userName = 'a'  AND password = 'a'  --- Sat May 06 20:29:32 CEST 2023
 com.mysql.jdbc.JDBC4PreparedStatement@3007281c: SELECT id, userName, password, birth, siret FROM user WHERE userName = 'a'  AND password = 'a'  --- Sat May 06 20:42:37 CEST 2023
+com.mysql.jdbc.JDBC4PreparedStatement@26e6d298: SELECT  id, userName, adresse, cp, ville, mail, Tel, hoj, hoh, description  FROM medecin WHERE userName = 'a'  AND password = null  --- Thu May 11 17:16:30 CEST 2023
+com.mysql.jdbc.JDBC4PreparedStatement@3c916e82: SELECT  id, userName, adresse, cp, ville, mail, Tel, hoj, hoh, description  FROM medecin WHERE userName = 'a'  AND password = null  --- Thu May 11 17:24:10 CEST 2023
+com.mysql.jdbc.JDBC4PreparedStatement@39ae07a0: SELECT  id, userName, adresse, cp, ville, mail, Tel, hoj, hoh, description  FROM medecin WHERE userName = 'a'  AND password = null  --- Thu May 11 17:26:10 CEST 2023
+com.mysql.jdbc.JDBC4PreparedStatement@20b9ae13: SELECT  id, userName, adresse, cp, ville, mail, Tel, hoj, hoh, description  FROM medecin WHERE userName = 'a'  AND password = null  --- Thu May 11 17:27:31 CEST 2023
+com.mysql.jdbc.JDBC4PreparedStatement@7209f6d2: SELECT  id, userName, adresse, cp, ville, mail, Tel, hoj, hoh, description  FROM medecin WHERE userName = 'a'  AND password = 'a'  --- Thu May 11 17:28:02 CEST 2023

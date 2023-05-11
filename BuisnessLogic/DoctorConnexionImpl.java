@@ -7,6 +7,7 @@ import Controllers.HomeController;
 import Controllers.SignInUpController;
 import Dao.DoctorConnexionDAO;
 import Dto.DoctorDto;
+import Dto.UserDTO;
 import InterfaceMetier.IBLog;
 import StaticClass.Logger;
 import StaticClass.UserSession;
@@ -99,6 +100,12 @@ public class DoctorConnexionImpl implements IBLog<DoctorDto, Integer, SignInUpCo
 			e.getMessage();
 		}
 		return dto;
+	}
+
+	@Override
+	public <T extends UserDTO, Y extends SignInUpController> T findOneByU_PG(T o, Y c) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

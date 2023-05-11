@@ -28,12 +28,13 @@ public class UserDTO {
 		this.password= password;
 	}
 
-	public UserDTO(String userName, String role) {
+	public UserDTO(String userName, String password) {
 		super();
 		UserName = userName;
-		Role = role;
+		this.password = password;
 	}
 	
+
 	public UserDTO(Integer iD, String userName, String role) {
 		super();
 		ID = iD;

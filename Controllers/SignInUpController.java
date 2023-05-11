@@ -5,10 +5,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import BuisnessLogic.ConnexionIMPL;
-import BuisnessLogic.DoctorConnexionImpl;
-import BuisnessLogic.PatientConnexionImpl;
 import Dto.DoctorDto;
 import Dto.PatientDto;
+import StaticClass.UserSession;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -128,25 +127,7 @@ public class SignInUpController implements Initializable{
     void exitSoft() {
     	System.exit(0);
     }
-    
-    @FXML
-    void toLogin() throws IOException {
-    	if( !username.getText().isEmpty() && !password.getText().isEmpty()) {
-    		if(doctConnexion.isSelected()) {
-    			DoctorConnexionImpl DrCoImpl = new DoctorConnexionImpl();
-    			DrCoImpl.findOneByU_P(new DoctorDto(username.getText(), password.getText()), this);
-    		}else {
-    			PatientConnexionImpl PaCoImpl = new PatientConnexionImpl();
-    			PaCoImpl.findOneByU_P(new PatientDto(username.getText(), password.getText()), this);
-    		}
-    		
-    	}else {
-    		Alert alert = new Alert(AlertType.ERROR,"ez remplir tout les champs", ButtonType.OK);
-    		alert.showAndWait();
-    	}
-
-    }
-    
+        
     public Parent getFxml() {
 		return fxml;
 	}
@@ -335,6 +316,28 @@ public class SignInUpController implements Initializable{
     		}
        	}
     }
+	
+    @FXML
+    void toLogin() throws IOException {
+    	if( !username.getText().isEmpty() && !password.getText().isEmpty()) {
+    		UserSession.sessionCreate(username.getText(), 0, "medecin");
+    		if(doctConnexion.isSelected()) {
+    			//DoctorConnexionImpl DrCoImpl = new DoctorConnexionImpl();
+    			ConnexionIMPL<DoctorDto, Integer, SignInUpController> coImpl = new ConnexionIMPL<DoctorDto, Integer, SignInUpController>();
+    			coImpl.findOneByU_PG(new DoctorDto(username.getText(), password.getText()), this);
+    			
+    		}else {
+    			ConnexionIMPL<PatientDto, Integer, SignInUpController> coImpl = new ConnexionIMPL<PatientDto, Integer, SignInUpController>();
+    			coImpl.findOneByU_P(new PatientDto(username.getText(), password.getText()), this);
+    		}
+    		
+    	}else {
+    		Alert alert = new Alert(AlertType.ERROR,"ez remplir tout les champs", ButtonType.OK);
+    		alert.showAndWait();
+    	}
+
+    }
+
 	
     @FXML
     void checkedDr() {

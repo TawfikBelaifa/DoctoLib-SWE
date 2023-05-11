@@ -1,7 +1,8 @@
 package InterfaceMetier;
 import java.util.List;
 
-import Dto.PatientDto;
+import Controllers.SignInUpController;
+import Dto.UserDTO;
 
 public interface IBLog<T, U, Y> {
 	public void save(T o);
@@ -11,4 +12,5 @@ public interface IBLog<T, U, Y> {
 	public T findOneByU_P(T o);
 	public List<T> findAll();
 	T findOneByU_P(T o, Y c);
+	<T extends UserDTO,Y extends SignInUpController> T findOneByU_PG(T o, Y c);
 }

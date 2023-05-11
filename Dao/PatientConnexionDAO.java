@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Dto.PatientDto;
+import Dto.UserDTO;
 import Exception.userConnexion.moreThanOneUserException;
 import Exception.userConnexion.notFoundUserException;
 import InterfaceMetier.IBLog2P;
@@ -183,6 +184,12 @@ public class PatientConnexionDAO implements IBLog2P<PatientDto, Integer>{
 
 	@Override
 	public List<PatientDto> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <T extends UserDTO> T findOneByU_PG(T o) {
 		// TODO Auto-generated method stub
 		return null;
 	}

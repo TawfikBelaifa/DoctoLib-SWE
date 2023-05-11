@@ -27,8 +27,8 @@ public class DoctorDto extends UserDTO{
 		// TODO Auto-generated constructor stub
 	}
 
-	public DoctorDto(String userName, String role) {
-		super(userName, role);
+	public DoctorDto(String userName, String password) {
+		super(userName, password);
 		// TODO Auto-generated constructor stub
 	}
 

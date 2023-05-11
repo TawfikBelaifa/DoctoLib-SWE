@@ -13,8 +13,8 @@ public class PatientDto extends UserDTO{
 		// TODO Auto-generated constructor stub
 	}
 
-	public PatientDto(String userName, String role) {
-		super(userName, role);
+	public PatientDto(String userName, String password) {
+		super(userName, password);
 		// TODO Auto-generated constructor stub
 	}
 

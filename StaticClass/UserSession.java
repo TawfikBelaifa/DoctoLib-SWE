@@ -1,7 +1,7 @@
 package StaticClass;
 
 public class UserSession {
-    private static UserSession instance;
+    public static UserSession instance;
     private String username;
     private int userID;
     private String role;
