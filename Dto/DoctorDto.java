@@ -4,12 +4,15 @@ public class DoctorDto extends UserDTO{
 	
 	private static String role = "Doctor";
 	
+	private String siret; 
 	private String mail;
 	private String spe;
 	private String Tel;
 	private String hoj;
 	private String hoh;
 	private String description;
+
+
 
 	public DoctorDto() {
 		super();
@@ -18,8 +21,14 @@ public class DoctorDto extends UserDTO{
 
 	public DoctorDto(Integer iD, String userName, String role, String birth, Integer cp, String ville, String adresse,
 			String password) {
-		super(iD, userName, role, birth, cp, ville, adresse, password);
+		super(iD, userName, birth, cp, ville, adresse, password);
 		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+	public DoctorDto(String userName, String password, String siret, String birth, Integer cp, String ville, String adresse) {
+		super(userName, password, birth, cp, ville, adresse);
 	}
 
 	public DoctorDto(Integer iD, String userName, String role) {
@@ -34,7 +43,7 @@ public class DoctorDto extends UserDTO{
 
 	
 	public DoctorDto(Integer iD, String userName, String role, String birth, Integer cp, String ville, String adresse, String password, String mail, String spe, String tel, String hoj, String hoh, String description) {
-		super(iD, userName, role, birth, cp, ville, adresse, password);
+		super(iD, userName, birth, cp, ville, adresse, password);
 
 		this.mail = mail;
 		this.spe = spe;
@@ -43,7 +52,7 @@ public class DoctorDto extends UserDTO{
 		this.hoh = hoh;
 		this.description = description;
 	}
-	
+
 	public String getMail() {
 		return mail;
 	}
@@ -79,6 +88,14 @@ public class DoctorDto extends UserDTO{
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getSiret() {
+		return siret;
+	}
+
+	public void setSiret(String siret) {
+		this.siret = siret;
 	}
 	
 }

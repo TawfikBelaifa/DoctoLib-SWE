@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import BuisnessLogic.ConnexionIMPL;
+import BuisnessLogic.ImplementationGN;
 import Dto.DoctorDto;
 import Dto.PatientDto;
 import StaticClass.UserSession;
@@ -301,11 +301,29 @@ public class SignInUpController implements Initializable{
 	}
 
 	public void toSignIn() {
-    	if( !userNameSignin.getText().isEmpty() && !speChoice.getValue().isEmpty()  && !speChoice.getValue().isEmpty() && !passwordSignin.getText().isEmpty() &&  !confirmePassword.getText().isEmpty() && (birthDate.getValue().getMonthValue() != 0) && !siretNum.getText().isEmpty()) {
-    		if(true) {
-	    		if(passwordSignin.getText().equalsIgnoreCase(confirmePassword.getText())) {
-	    			ConnexionIMPL<PatientDto, Integer, SignInUpController> coImpl = new ConnexionIMPL<PatientDto, Integer, SignInUpController>();
-	            	coImpl.save(new PatientDto(userNameSignin.getText(), passwordSignin.getText(), birthDate.getValue().toString(),Integer.valueOf(siretNum.getText()), Integer.valueOf(cp.getText()) , ville.getText(), adresse.getText()));
+		if(doct.isSelected()) {
+			if( !userNameSignin.getText().isEmpty() && !speChoice.getValue().isEmpty()  && !speChoice.getValue().isEmpty() && !passwordSignin.getText().isEmpty() &&  !confirmePassword.getText().isEmpty() && (birthDate.getValue().getMonthValue() != 0) && !siretNum.getText().isEmpty()) {
+		    		if(passwordSignin.getText().equalsIgnoreCase(confirmePassword.getText())) {
+		    			UserSession.sessionCreate(null, 0, "medecin");
+		    			ImplementationGN<DoctorDto, Integer, SignInUpController> coImpl = new ImplementationGN<DoctorDto, Integer, SignInUpController>();
+		            	coImpl.save(new DoctorDto(userNameSignin.getText(), passwordSignin.getText(), siretNum.getText() ,birthDate.getValue().toString(), Integer.valueOf(cp.getText()) , ville.getText(), adresse.getText()));
+		            	Alert alert = new Alert(AlertType.CONFIRMATION,"Inscription réussi", ButtonType.NEXT);
+			    		alert.showAndWait();
+			    		ToMoveLogIn();
+		    		}else {
+		    			Alert alert = new Alert(AlertType.ERROR,"Mot de passe incorrect", ButtonType.OK);
+			    		alert.showAndWait();
+		    		}
+			}else {
+    			Alert alert = new Alert(AlertType.ERROR,"Veuillez remplir tous les champs", ButtonType.OK);
+	    		alert.showAndWait();
+			}
+		}else {
+			if( !userNameSignin.getText().isEmpty() && !passwordSignin.getText().isEmpty() &&  !confirmePassword.getText().isEmpty()) {
+				if(passwordSignin.getText().equalsIgnoreCase(confirmePassword.getText())) {
+					UserSession.sessionCreate(null, 0, "patient");
+					ImplementationGN<PatientDto, Integer, SignInUpController> coImpl = new ImplementationGN<PatientDto, Integer, SignInUpController>();
+	            	coImpl.save(new PatientDto(userNameSignin.getText(), passwordSignin.getText()));
 	            	Alert alert = new Alert(AlertType.CONFIRMATION,"Inscription réussi", ButtonType.NEXT);
 		    		alert.showAndWait();
 		    		ToMoveLogIn();
@@ -313,22 +331,35 @@ public class SignInUpController implements Initializable{
 	    			Alert alert = new Alert(AlertType.ERROR,"Mot de passe incorrect", ButtonType.OK);
 		    		alert.showAndWait();
 	    		}
-    		}
-       	}
+				
+			}else {
+    			Alert alert = new Alert(AlertType.ERROR,"Veuillez remplir tous les champs", ButtonType.OK);
+	    		alert.showAndWait();
+			}
+		}
     }
 	
     @FXML
     void toLogin() throws IOException {
     	if( !username.getText().isEmpty() && !password.getText().isEmpty()) {
-    		UserSession.sessionCreate(username.getText(), 0, "medecin");
+    		
     		if(doctConnexion.isSelected()) {
-    			//DoctorConnexionImpl DrCoImpl = new DoctorConnexionImpl();
-    			ConnexionIMPL<DoctorDto, Integer, SignInUpController> coImpl = new ConnexionIMPL<DoctorDto, Integer, SignInUpController>();
+    			if( UserSession.instance != null ) {
+    				UserSession.instance.setUsername(username.getText());
+    			}else{
+    				UserSession.sessionCreate(username.getText(), 0, "medecin");
+    			}
+    			ImplementationGN<DoctorDto, Integer, SignInUpController> coImpl = new ImplementationGN<DoctorDto, Integer, SignInUpController>();
     			coImpl.findOneByU_PG(new DoctorDto(username.getText(), password.getText()), this);
     			
     		}else {
-    			ConnexionIMPL<PatientDto, Integer, SignInUpController> coImpl = new ConnexionIMPL<PatientDto, Integer, SignInUpController>();
-    			coImpl.findOneByU_P(new PatientDto(username.getText(), password.getText()), this);
+    			if( UserSession.instance != null ) {
+    				UserSession.instance.setUsername(username.getText());
+    			}else{
+    				UserSession.sessionCreate(username.getText(), 0, "patient");
+    			}
+    			ImplementationGN<PatientDto, Integer, SignInUpController> coImpl = new ImplementationGN<PatientDto, Integer, SignInUpController>();
+    			coImpl.findOneByU_PG(new PatientDto(username.getText(), password.getText()), this);
     		}
     		
     	}else {

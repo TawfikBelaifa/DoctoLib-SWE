@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Controllers.SignInUpController;
+import Dto.DoctorDto;
 import Dto.PatientDto;
 import Dto.UserDTO;
 import Exception.userConnexion.moreThanOneUserException;
@@ -18,22 +18,22 @@ import StaticClass.ConnexionMysql;
 import StaticClass.Logger;
 import StaticClass.UserSession;
 
-public class ConnexionDAO<X extends UserDTO,Y> implements IBLog2P<X,Y>{
+public class DAOgn<X extends UserDTO,Y> implements IBLog2P<X,Y>{
 
 	private static String drTable = "medecin";
 	private static String ptTable = "user";
-	private static String TABLE = UserSession.instance.getRole() == "medecin" ? drTable : ptTable ;
+	private static String TABLE = UserSession.instance.getRole() == "medecin" ? drTable : ptTable;
 	private static Connection cnx;
 	
 	@SuppressWarnings("rawtypes")
-	public static ConnexionDAO getDao() {
+	public static DAOgn getDao() {
 		try {
 			cnx = ConnexionMysql.cconnexionBD();
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new ConnexionDAO<>();
+		return new DAOgn<>();
 	}
 	
 	private <T extends UserDTO> T rowToObject(ResultSet resultSet, T obj) throws SQLException {
@@ -61,6 +61,17 @@ public class ConnexionDAO<X extends UserDTO,Y> implements IBLog2P<X,Y>{
 		sb.append(" description ");
 	}
 	
+	private void appendProjectionUser(StringBuffer sb) {
+		sb.append(" id,");
+		sb.append(" userName,");
+		sb.append(" password,");
+		sb.append(" birth,");
+		sb.append(" cp,");
+		sb.append(" ville,");
+		sb.append(" adress ");
+
+	}
+	
 	private void appendProjectionUPDATE(StringBuffer sb) {
 		sb.append(" id = ? ");
 		sb.append(" userName = ? ");
@@ -84,19 +95,17 @@ public class ConnexionDAO<X extends UserDTO,Y> implements IBLog2P<X,Y>{
         PatientDto dto = null;
         StringBuffer sb = new StringBuffer();
 		sb.append("INSERT INTO ");
-		sb.append(drTable);
+		sb.append(TABLE);
 		sb.append(" (");
 		sb.append(" id, ");
 		sb.append(" userName,");
 		sb.append(" password,");
 		sb.append(" birth,");
-		sb.append(" siret,");
 		sb.append(" cp,");
 		sb.append(" ville,");
-		sb.append(" adress,");
-		sb.append(" spe");
+		sb.append(" adress");
 		sb.append(") VALUES (");
-		sb.append("id,?,?,?,?,?,?,?,?");
+		sb.append("id,?,?,'',0,'',''");
 		sb.append(")");
 		try {
 			preparedStatement =  cnx.prepareStatement(sb.toString());
@@ -112,10 +121,10 @@ public class ConnexionDAO<X extends UserDTO,Y> implements IBLog2P<X,Y>{
 		try {
 			preparedStatement.setString(index++, o.getUserName());
 			preparedStatement.setString(index++, o.getPassword());
-			preparedStatement.setString(index++, o.getBirth());
+			/*preparedStatement.setString(index++, o.getBirth());
 			preparedStatement.setInt(index++, o.getCp());
 			preparedStatement.setString(index++, o.getVille());
-			preparedStatement.setString(index++, o.getAdresse());
+			preparedStatement.setString(index++, o.getAdresse());*/
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -170,9 +179,14 @@ public class ConnexionDAO<X extends UserDTO,Y> implements IBLog2P<X,Y>{
         try {
 			StringBuffer sb = new StringBuffer();
 			sb.append("SELECT ");
-			this.appendProjection(sb);
+			if( o instanceof DoctorDto ) {
+				this.appendProjection(sb);
+			}else {
+				this.appendProjectionUser(sb);
+			}
 			sb.append(" FROM ");
 			sb.append(TABLE);
+			
 			this.appendProjectionWHERE(sb);
 			preparedStatement = cnx.prepareStatement(sb.toString());
 			

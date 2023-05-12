@@ -12,7 +12,7 @@ public class UserSession {
         this.role = role;
     }
 
-    public static void sessionCreate(String username, int userID, String role) {
+	public static void sessionCreate(String username, int userID, String role) {
     	instance = new UserSession(username, userID, role);
     }
 
@@ -31,4 +31,13 @@ public class UserSession {
     public void setRole(String role) {
         this.role = role;
     }
+    
+    public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
+	
 }

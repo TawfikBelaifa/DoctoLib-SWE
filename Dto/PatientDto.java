@@ -19,15 +19,11 @@ public class PatientDto extends UserDTO{
 	}
 
 	public PatientDto(Integer iD, String userName, String role, String birth, Integer cp, String ville, String adresse, String password) {
-		super(iD, userName, role, birth, cp, ville, adresse, password);
-	}
-
-	public PatientDto(String username, String password, String birth, Integer siret, Integer cp, String ville, String adresse) {
-		super(username, password, role, birth, siret ,cp, ville, adresse);
+		super(iD, userName, birth, cp, ville, adresse, password);
 	}
 	
 	public PatientDto(String username, String password, String birth, Integer cp, String ville, String adresse) {
-		super(username, password, role, birth ,cp, ville, adresse);
+		super(username, password, birth ,cp, ville, adresse);
 	}
 	
 }

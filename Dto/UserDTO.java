@@ -4,23 +4,21 @@ public class UserDTO {
 
 	private Integer ID;
 	private String UserName;
-	private String Role;
 	private String birth;
 	private Integer cp;
 	private String ville;
 	private String adresse;
 	private String password;
-	private String siret;
 
-	public UserDTO(String username2, String password2, String role2, String birth2, Integer siret2, Integer cp2, String ville2, String adresse2) {
+	public UserDTO(String username, String password, String role, String birth, Integer siret, Integer cp, String ville, String adresse) {
 		super();
+		
 	}
 
-	public UserDTO(Integer iD, String userName, String role, String birth, Integer cp, String ville, String adresse, String password) {
+	public UserDTO(Integer iD, String userName, String birth, Integer cp, String ville, String adresse, String password) {
 		super();
 		ID = iD;
 		UserName = userName;
-		Role = role;
 		this.birth = birth;
 		this.cp = cp;
 		this.ville = ville;
@@ -30,7 +28,7 @@ public class UserDTO {
 
 	public UserDTO(String userName, String password) {
 		super();
-		UserName = userName;
+		this.UserName = userName;
 		this.password = password;
 	}
 	
@@ -39,13 +37,11 @@ public class UserDTO {
 		super();
 		ID = iD;
 		UserName = userName;
-		Role = role;
 	}
 
-	public UserDTO(String userName, String password, String role, String birth, Integer cp, String ville, String adresse) {
+	public UserDTO(String userName, String password, String birth, Integer cp, String ville, String adresse) {
 		super();
-		UserName = userName;
-		Role = role;
+		this.UserName = userName;
 		this.birth = birth;
 		this.cp = cp;
 		this.ville = ville;
@@ -57,6 +53,7 @@ public class UserDTO {
 		super();
 	}
 
+
 	public String getPassword() {
 		return password;
 	}
@@ -67,14 +64,6 @@ public class UserDTO {
 	
 	public String getBirth() {
 		return birth;
-	}
-	
-	public String getSiret() {
-		return siret;
-	}
-
-	public void setSiret(String siret) {
-		this.siret = siret;
 	}
 
 	public void setBirth(String birth) {
@@ -116,12 +105,6 @@ public class UserDTO {
 	}
 	public void setUserName(String userName) {
 		UserName = userName;
-	}
-	public String getRole() {
-		return Role;
-	}
-	public void setRole(String role) {
-		Role = role;
 	}
 	
 	

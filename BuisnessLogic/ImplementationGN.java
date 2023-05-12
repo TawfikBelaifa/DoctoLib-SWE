@@ -5,7 +5,7 @@ import java.util.List;
 
 import Controllers.HomeController;
 import Controllers.SignInUpController;
-import Dao.ConnexionDAO;
+import Dao.DAOgn;
 import Dao.DoctorConnexionDAO;
 import Dto.UserDTO;
 import InterfaceMetier.IBLog;
@@ -19,15 +19,12 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 @SuppressWarnings("hiding")
-public class ConnexionIMPL<X extends UserDTO,Integer,Z> implements IBLog<X,Integer,Z>{
+public class ImplementationGN<X extends UserDTO,Integer,Z> implements IBLog<X,Integer,Z>{
 
-	
-	
-	
 	@Override
 	public void save(X o) {
 		// TODO Auto-generated method stub
-		ConnexionDAO.getDao().save(o);
+		DAOgn.getDao().save(o);
 		try {
 			Logger.readLog();
 		} catch (IOException e) {
@@ -77,11 +74,15 @@ public class ConnexionIMPL<X extends UserDTO,Integer,Z> implements IBLog<X,Integ
 	public <T extends UserDTO, Y extends SignInUpController> T findOneByU_PG(T o, Y c) {
 		T dto = (T) new UserDTO();
 		try {
-			dto =  (T) ConnexionDAO.getDao().findOneByU_PG(o);
+			dto =  (T) DAOgn.getDao().findOneByU_PG(o);
 			
 			if(dto != null) {
+				// Creation de la session 
+				UserSession.instance.setUserID(dto.getID());
+				UserSession.instance.setUsername(dto.getUserName());
+				
 				c.getSystemApp().getScene().getWindow().hide();
-				UserSession.sessionCreate(dto.getUserName(), dto.getID(), null);
+				
 	    		try {
 	    	    		Stage home = new Stage();
 	    	    		FXMLLoader loader = new FXMLLoader();
